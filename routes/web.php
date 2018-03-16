@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PostController@home'); 
+Route::get('/posts', 'PostController@index');
+
+
+// {
+	
+
+// 	// $posts = \App\Post::all();
+// 	// $data = ['posts' => $posts];
+//  //    return view('welcome', $data);//đưa biến posts vào view 
+// });
+
+
