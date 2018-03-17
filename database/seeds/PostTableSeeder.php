@@ -11,6 +11,13 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Post::class, 100)->create();
+    	DB::table('posts')->truncate();
+    	DB::table('comments')->truncate();
+
+        factory(App\Post::class, 10)->create()->each(function($post) {
+        	factory(App\Comment::class, 5)->create([
+        		'post_id' => $post->id,
+        	]);
+        });
     }
 }
