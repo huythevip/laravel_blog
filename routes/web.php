@@ -12,8 +12,18 @@
 */
 
 Route::get('/', 'PostController@home'); 
+
+//post
 Route::get('/posts', 'PostController@index');
-Route::get('comments/{id}', 'CommentController@detail');
 Route::get('/posts/{id}', 'PostController@detail');
+
+//comment
+Route::get('comments/create', 'CommentController@create');
+Route::post('comments/store', 'CommentController@store');
+
+
+
+Route::get('comments/{id}', 'CommentController@detail');
+
 
 
