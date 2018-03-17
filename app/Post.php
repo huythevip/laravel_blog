@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
 	//Tạo mới eloquent
     public function allFirstFive() {
     	return self::where('id', '<', 10)->get();
