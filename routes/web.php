@@ -13,15 +13,7 @@
 
 Route::get('/', 'PostController@home'); 
 Route::get('/posts', 'PostController@index');
+Route::get('comments/{id}', 'CommentController@detail');
 Route::get('/posts/{id}', 'PostController@detail');
-
-
-// {
-	
-
-// 	// $posts = \App\Post::all();
-// 	// $data = ['posts' => $posts];
-//  //    return view('welcome', $data);//đưa biến posts vào view 
-// });
 
 
