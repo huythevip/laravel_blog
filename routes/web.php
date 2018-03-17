@@ -13,6 +13,7 @@
 
 Route::get('/', 'PostController@home'); 
 Route::get('/posts', 'PostController@index');
+Route::get('/posts/{id}', 'PostController@detail');
 
 
 // {

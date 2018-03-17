@@ -30,6 +30,11 @@ class PostController extends Controller
 
         return view('posts.index', ['posts' => $posts]);
     }
+
+    public function detail($id)
+    {	
+    	return view('posts.detail', ['post' => Post::find($id)]);
+    }
 }
 
 
