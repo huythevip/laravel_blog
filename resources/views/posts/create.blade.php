@@ -12,10 +12,12 @@
 
         <!-- Styles -->
         <style>
+
+
             html, body {
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                color: #555;
+                font-family: Arial, sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -78,10 +80,27 @@
             @endif
 
             <div class="content">
-                @foreach($posts as $post)
-                    <p>Title: {{$post->title}}</p>
-                    <p>Content: {{$post->content}}</p>
-                @endforeach
+            	<h1>Create Post</h1>
+		  
+		</form> 
+
+            	<form action="{{route('post.store')}}" method="POST">
+            		{{csrf_field()}}
+            		<table>
+                    <tr>
+                        <td>Title: </td>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td>Post content: </td>
+                        <td><input type="text" name="content"></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2"><input type="submit" value="Submit"></td>
+                    </tr>
+                </table>
+            	</form>
+                
             </div>
         </div>
     </body>

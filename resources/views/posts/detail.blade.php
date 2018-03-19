@@ -14,8 +14,8 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
+                color: #333;
+                font-family: Arial, sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -78,10 +78,13 @@
             @endif
 
             <div class="content">
-                @foreach($posts as $post)
                     <p>Title: {{$post->title}}</p>
                     <p>Content: {{$post->content}}</p>
-                @endforeach
+                    <ul>
+                    @foreach($post->comments as $comment)
+                        <li>Comment: {{$comment->content}}</li>
+                    @endforeach
+                    </ul>
             </div>
         </div>
     </body>
