@@ -80,20 +80,20 @@
             @endif
 
             <div class="content">
-            	<h1>Create comment</h1>
+            	<h1>Create Post</h1>
 		  
 		</form> 
 
-            	<form action="{{route('comment.store')}}" method="POST">
+            	<form action="{{route('post.store')}}" method="POST">
             		{{csrf_field()}}
             		<table>
                     <tr>
-                        <td>Content: </td>
-                        <td><input type="text" name="content"></td>
+                        <td>Title: </td>
+                        <td><input type="text" name="title"></td>
                     </tr>
                     <tr>
-                        <td>Post ID: </td>
-                        <td><input type="text" name="post_id"></td>
+                        <td>Post content: </td>
+                        <td><input type="text" name="content"></td>
                     </tr>
                     <tr>
                     	<td colspan="2"><input type="submit" value="Submit"></td>

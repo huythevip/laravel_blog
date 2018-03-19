@@ -14,13 +14,17 @@
 Route::get('/', 'PostController@home'); 
 
 //post
+Route::get('posts/create', 'PostController@create');
+Route::post('posts/store', 'PostController@store')->name('post.store');
 Route::get('/posts', 'PostController@index');
-Route::get('/posts/{id}', 'PostController@detail');
+
 
 //comment
 Route::get('comments/create', 'CommentController@create');
-Route::post('comments/store', 'CommentController@store');
+Route::post('comments/store', 'CommentController@store')->name('comment.store');
 
+//Post
+Route::get('/posts/{id}', 'PostController@detail');
 
 
 Route::get('comments/{id}', 'CommentController@detail');

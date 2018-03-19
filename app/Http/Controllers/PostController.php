@@ -7,6 +7,7 @@ use App\User;
 use App\Post;
 use App\Comment;
 use DB;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 
@@ -24,8 +25,6 @@ class PostController extends Controller
 
     public function index()
     {
-
-    	
     	$posts = Post::all();
 
         return view('posts.index', ['posts' => $posts]);
@@ -35,7 +34,30 @@ class PostController extends Controller
     {	
     	return view('posts.detail', ['post' => Post::find($id)]);
     }
+
+    public function create()
+    {	
+    	return view('posts.create');
+    }
+
+    public function store(request $request)
+    {	
+    	$post = new Post;
+    	$post->title = $request->title;
+    	$post->content = $request->content;
+    	$post->save();
+
+    	//dd('/posts/' . $post->id);
+
+    	return redirect('/posts/'. $post->id);
+    }
+
+
+
+
 }
+
+
 
 
 
