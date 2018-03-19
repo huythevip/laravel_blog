@@ -47,8 +47,6 @@ class PostController extends Controller
     	$post->content = $request->content;
     	$post->save();
 
-    	//dd('/posts/' . $post->id);
-
     	return redirect('/posts/'. $post->id);
     }
 
