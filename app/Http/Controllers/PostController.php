@@ -78,6 +78,13 @@ class PostController extends Controller
     	return redirect('posts/'.$post->id);
     }
 
+    public function search(request $request)
+    {
+    	$posts = Post::where('content', 'like', '%'.$request->search.'%')->get();
+    	return view('posts.index', ['posts' => $posts]);
+    }
+
+
 }
 
 

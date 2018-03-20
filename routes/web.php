@@ -14,6 +14,7 @@
 Route::get('/', 'PostController@home'); 
 
 //post
+Route::get('posts/search', 'PostController@search')->name('post.search');
 Route::get('posts/create', 'PostController@create');
 Route::post('posts/store', 'PostController@store')->name('post.store');
 Route::get('posts/delete', 'PostController@delete');

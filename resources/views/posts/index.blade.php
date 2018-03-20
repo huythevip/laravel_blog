@@ -8,84 +8,76 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
         <!-- Styles -->
         <style>
-
-
-            html, body {
-                background-color: #fff;
-                color: #555;
-                font-family: Arial, sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
+            * {
+                margin: 0px;
+                padding: 0px;
             }
 
-            .full-height {
-                height: 100vh;
+            .main-header {
+                height: 50px;
+                background-color: gray;
+                line-height: 50px;
+                margin-bottom: 50px;
             }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
+            .search-bar {
+                float: right;
+                margin-right: 20px;
             }
 
-            .position-ref {
-                position: relative;
+            .blog-title {
+                float: left;
+                margin-left: 20px;
             }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+            .main-body {
+                clear: both;
             }
 
-            .content {
+            .post-title {
                 text-align: center;
+                margin-top: 20px;
             }
 
-            .title {
-                font-size: 84px;
+            .main-body {
+                margin: 0 50px;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
+            .comment-list {
+                margin-left: 50px;
+                margin-bottom: 20px;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
+
+
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
+            <div class="main-header" style="background-color: gray">
+                <h1 class="blog-title">Laravel Blog</h1>
+                <form action="{{route('post.search')}}" class="search-bar" method="GET">
+                    <input type="text" name="search" placeholder="Search">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </form>
+            </div>
+        <div class="main-body">
             <div class="content">
                 @foreach($posts as $post)
-                    <h1>Title: {{$post->title}}</h1>
-                    <p>Content: {{$post->content}}</p>
+                    <h1 class="post-title">Title: {{$post->title}}</h1>
+                    <p class="post-content">Content: {{$post->content}}</p>
+                    <h3>Comments:</h3>
+                    <ul class="comment-list">
                     @foreach($post->comments as $comment)
-                        <p>{{ $comment->content }}</p>
+                        <li>{{ $comment->content }}</li>
                     @endforeach
+                    </ul>
+                    <hr>
                 @endforeach
             </div>
         </div>
