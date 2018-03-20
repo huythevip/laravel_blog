@@ -14,8 +14,13 @@
 Route::get('/', 'PostController@home'); 
 
 //post
+Route::get('posts/search', 'PostController@search')->name('post.search');
 Route::get('posts/create', 'PostController@create');
 Route::post('posts/store', 'PostController@store')->name('post.store');
+Route::get('posts/delete', 'PostController@delete');
+Route::get('posts/edit', 'PostController@edit');
+Route::post('posts/edit_success', 'PostController@ed_su')->name('post.ed_su');
+Route::post('posts/delete_success', 'PostController@del_su')->name('post.de_su');
 Route::get('/posts', 'PostController@index');
 
 
